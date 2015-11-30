@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.fruitmix.eflyerhandler.MainActivity" >
+
+    <TextView
+        android:id="@+id/GPS"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@+id/button"
+        android:text="GPS" />
+
+    <EditText
+        android:id="@+id/porttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/GPS"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:text="1592" />
+
+    <EditText
+        android:id="@+id/iptext"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/porttext"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:text="192.168.7.191" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iptext"
+        android:layout_toRightOf="@+id/iptext"
+        android:text="IP"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/porttext"
+        android:layout_toRightOf="@+id/porttext"
+        android:text="Port"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/GPS"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/button"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/button_play"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button"
+        android:layout_alignBottom="@+id/button"
+        android:layout_alignLeft="@+id/surfaceView1"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/button_stop"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_play"
+        android:layout_alignBottom="@+id/button_play"
+        android:layout_marginLeft="56dp"
+        android:layout_toRightOf="@+id/button_play"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/surfaceView1"
+        android:layout_below="@+id/surfaceView1"
+        android:text="Button" />
+
+    <SurfaceView
+        android:id="@+id/surfaceView1"
+        android:layout_width="800dp"
+        android:layout_height="450dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/iptext"
+        android:layout_marginRight="77dp" />
+
+</RelativeLayout>
