@@ -34,7 +34,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback,Sen
 
     private boolean is_playing_desired;   // Whether the user asked to go to PLAYING
 
-    static Sensors sensor;
+    static Sensors sensor; //
     static String gps="GPS";
     AsyncTask<Void,Void,Void> sendtask;
     ClientConnection cc;
@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback,Sen
         }
 
         setContentView(R.layout.activity_main);
-        sensor = new Sensors(getBaseContext(), this);  
+        sensor = new Sensors(getBaseContext(), this);
         Button play = (Button) this.findViewById(R.id.button_play);
         play.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -167,12 +167,11 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback,Sen
     public void onAccuracyChanged(Sensor a1,int a2){}
 
     private  AsyncTask<Void,Void,Void> createTask(){
-    	
+    	//создание потока, в котором отправляются данные на сервер
         String ip=((EditText)findViewById(R.id.iptext)).getText().toString();
         int port=Integer.valueOf(((EditText) findViewById(R.id.porttext)).
-                getText().toString());
+                getText().toString());//получение ip и порта
         cc= new ClientConnection(ip, port, CH.class, 200);
-    
         return  new AsyncTask<Void,Void,Void>(){
             protected Void doInBackground(Void... pars){
                 try {

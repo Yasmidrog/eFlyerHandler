@@ -5,22 +5,21 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Bundle;
-import android.widget.TextView;
 
 import org.sparkle.jbind.JBinD;
 import org.sparkle.jbind.Part;
 import org.sparkle.jcfg.JCFG;
 import org.sparkle.jcfg.Writer;
 
-import java.util.HashMap;
-
 /**
  * Created by yasmidrog on 12.10.15.
  */
 public class Sensors {
+    /*
+    обновление данных о датчиках
+     */
     private JCFG config=new JCFG();
-    String curentDatal;
+    String curentData; //текущая информация в виде строки
     private  SensorManager mSensorManager;
     private  Sensor mAccelerometer;
     private Context context;
@@ -34,11 +33,12 @@ public class Sensors {
         mSensorManager.registerListener(listener, mAccelerometer, 3);
     }
     public void onSensorChanged(SensorEvent event) {
+        //обновить данные о каждлм датчике
     	try{
         config.set(event.sensor.getName().split("	")[2]+"X",event.values[0]);
         config.set(event.sensor.getName().split("	")[2]+"Y",event.values[1]);
         config.set(event.sensor.getName().split("	")[2]+"Z",event.values[2]);
-        curentDatal=Writer.writeToString(config);
+        curentData =Writer.writeToString(config);
     	}catch(Exception ex){
     		ex.printStackTrace();
     	}
@@ -49,6 +49,7 @@ public class Sensors {
     }
 
    public JBinD getBind(){
+       //сформировать JBind для отправки
        JBinD b=new JBinD();
        try {
            b.addPart(new Part("sensors", config));
